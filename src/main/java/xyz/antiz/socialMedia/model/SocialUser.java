@@ -15,6 +15,6 @@ public class SocialUser {
     @OneToOne(mappedBy = "user")
     private SocialProfile socialProfile;
 
-    @OneToMany
+    @OneToMany(mappedBy = "socialUser")
     private List<Post> post = new ArrayList<>();
 }
