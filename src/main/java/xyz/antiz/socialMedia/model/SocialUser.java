@@ -1,10 +1,10 @@
 package xyz.antiz.socialMedia.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class SocialUser {
 
@@ -12,6 +12,9 @@ public class SocialUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    private SocialUser username;
+    @OneToOne(mappedBy = "user")
+    private SocialProfile socialProfile;
+
+    @OneToMany
+    private List<Post> post = new ArrayList<>();
 }
